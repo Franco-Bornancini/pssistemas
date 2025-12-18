@@ -53,7 +53,7 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 border-b border-slate-200/70 bg-white/75 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
         {/* Brand */}
-        <button
+        <div
           onClick={() => handleNav({ type: "hash", value: "#inicio" })}
           className="group flex items-center gap-3 text-left"
           aria-label="Ir al inicio"
@@ -63,11 +63,7 @@ export default function Navbar() {
             alt="PS Sistemas"
             draggable="false"
             className="
-              h-20 w-auto object-contain
-              rounded-2xl
-              shadow-sm
-              transition
-              hover:scale-[1.03]
+              h-10 w-auto
             "
           />
           <div className="leading-tight">
@@ -76,7 +72,7 @@ export default function Navbar() {
             </div>
             <div className="text-sm text-slate-500">Desarrollos a medida</div>
           </div>
-        </button>
+        </div>
 
         {/* Desktop nav */}
         <nav className="hidden items-center gap-2 md:flex">

@@ -14,10 +14,6 @@ export default function Footer() {
                 draggable="false"
                 className="
                   h-16 w-auto object-contain
-                  rounded-2xl
-                  shadow-sm
-                  transition
-                  hover:scale-[1.03]
                 "
               />
 
