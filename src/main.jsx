@@ -7,7 +7,7 @@ import "../src/styles/animations.css"
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/pssistemas">
       <App />
     </BrowserRouter>
   </React.StrictMode>
