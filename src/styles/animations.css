@@ -1,0 +1,109 @@
+/* src/styles/animations.css */
+
+/* Entrada suave */
+@keyframes ps-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Flotar sutil */
+@keyframes ps-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* Brillo/halo suave */
+@keyframes ps-glow {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    opacity: 0.55;
+    transform: translateY(-6px) scale(1.03);
+  }
+}
+
+/* Clases utilitarias */
+.ps-animate-in {
+  animation: ps-fade-up 700ms ease-out both;
+}
+
+.ps-delay-1 {
+  animation-delay: 80ms;
+}
+.ps-delay-2 {
+  animation-delay: 160ms;
+}
+.ps-delay-3 {
+  animation-delay: 240ms;
+}
+
+.ps-float {
+  animation: ps-float 6s ease-in-out infinite;
+}
+
+.ps-float-slow {
+  animation: ps-float 8s ease-in-out infinite;
+}
+
+.ps-glow {
+  animation: ps-glow 8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ps-animate-in,
+  .ps-float,
+  .ps-float-slow,
+  .ps-glow {
+    animation: none !important;
+  }
+}
+/* Animaciones suaves (sin librerías) */
+@keyframes ps-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes ps-slide-down {
+  from { opacity: 0; transform: translate(-50%, -10px) scale(0.98); }
+  to { opacity: 1; transform: translate(-50%, 0) scale(1); }
+}
+
+@keyframes ps-slide-up {
+  from { opacity: 1; transform: translate(-50%, 0) scale(1); }
+  to { opacity: 0; transform: translate(-50%, -10px) scale(0.98); }
+}
+
+/* Overlay */
+.ps-mobile-overlay {
+  animation: ps-fade-in 180ms ease-out;
+}
+
+/* Panel entra */
+.ps-mobile-panel {
+  transform-origin: top center;
+  animation: ps-slide-down 200ms ease-out;
+  will-change: transform, opacity;
+}
+
+/* Respetar usuarios con reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .ps-mobile-overlay,
+  .ps-mobile-panel {
+    animation: none !important;
+  }
+}
+
