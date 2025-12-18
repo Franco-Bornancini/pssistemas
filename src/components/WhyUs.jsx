@@ -73,7 +73,44 @@ export default function WhyUs() {
             </div>
           </div>
 
-          {/* Visual (mockup de pantallas) */}
+          {/* VISUAL MOBILE/TABLET (compacto) */}
+          <div className="relative ps-animate-in ps-delay-2 lg:hidden">
+            <div className="rounded-[2rem] border border-slate-200 bg-gradient-to-br from-emerald-50 via-white to-slate-50 p-5 shadow-sm">
+              <div className="flex items-center justify-between">
+                <div className="text-sm font-semibold text-slate-900">Panel de sistema</div>
+                <span className="text-xs text-slate-500">Vista rápida</span>
+              </div>
+
+              <div className="mt-4 grid grid-cols-2 gap-3">
+                <MiniTile icon={ChartBarSquareIcon} title="Reportes" tone="emerald" />
+                <MiniTile icon={UsersIcon} title="Usuarios" />
+                <MiniTile icon={CreditCardIcon} title="Tesorería" />
+                <MiniTile icon={TruckIcon} title="Operación" />
+              </div>
+
+              <div className="mt-4 rounded-2xl bg-white/70 p-4 ring-1 ring-slate-200">
+                <div className="flex items-center gap-2 text-sm font-semibold text-slate-900">
+                  <ClipboardDocumentCheckIcon className="h-5 w-5 text-slate-700" />
+                  Actividad
+                </div>
+                <div className="mt-3 space-y-2">
+                  <div className="h-3 rounded bg-white ring-1 ring-slate-200" />
+                  <div className="h-3 rounded bg-white ring-1 ring-slate-200" />
+                  <div className="h-3 rounded bg-white ring-1 ring-slate-200" />
+                </div>
+              </div>
+
+              <div className="mt-4 flex items-center justify-between rounded-2xl bg-emerald-500/10 px-4 py-3 ring-1 ring-emerald-500/20">
+                <div className="flex items-center gap-2 text-sm font-medium text-slate-900">
+                  <Cog6ToothIcon className="h-5 w-5 text-emerald-700" />
+                  Módulos configurables
+                </div>
+                <span className="text-xs text-slate-600">OK</span>
+              </div>
+            </div>
+          </div>
+
+          {/* VISUAL DESKTOP (superpuesto) */}
           <div className="relative hidden lg:block ps-animate-in ps-delay-2">
             {/* Fondo suave */}
             <div className="absolute inset-0 rounded-[2.5rem] bg-gradient-to-br from-emerald-50 via-white to-slate-50" />
@@ -193,5 +230,24 @@ export default function WhyUs() {
         </div>
       </div>
     </section>
+  )
+}
+
+function MiniTile({ icon: Icon, title, tone }) {
+  const toneCls =
+    tone === "emerald"
+      ? "bg-emerald-500/10 ring-emerald-500/20"
+      : "bg-white/70 ring-slate-200"
+
+  const iconCls = tone === "emerald" ? "text-emerald-700" : "text-slate-700"
+
+  return (
+    <div className={`rounded-2xl p-4 ring-1 ${toneCls}`}>
+      <div className="flex items-center gap-2">
+        <Icon className={`h-5 w-5 ${iconCls}`} />
+        <div className="text-sm font-semibold text-slate-900">{title}</div>
+      </div>
+      <div className="mt-3 h-7 rounded-xl bg-white ring-1 ring-slate-200" />
+    </div>
   )
 }
